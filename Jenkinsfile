@@ -1,8 +1,4 @@
 pipeline {
-  agent { "admin" }
-  options {
-    skipDefaultCheckout(true)
-  }
   stages{
     stage('clean workspace') {
       steps {
