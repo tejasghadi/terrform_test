@@ -9,5 +9,5 @@ resource "aws_instance" "web" {
 
 provider "aws" {
   region  = "us-east-1"
-  version = "v2.70.0"
+  version = "1.0.0"
 }
