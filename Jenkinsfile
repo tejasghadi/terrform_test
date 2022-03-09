@@ -15,6 +15,7 @@ pipeline {
     }
     stage('terraform') {
       steps {
+        sh 'apt install wget -y'
         sh 'bash terraformw apply -auto-approve -no-color'
       }
     }
