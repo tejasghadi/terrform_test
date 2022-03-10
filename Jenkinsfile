@@ -14,8 +14,10 @@ pipeline {
       }
     }
     stage('terraform') {
-      withAWS(credentials: 'terraform_cloud_user') {
+      steps {
+        withAWS(credentials: 'terraform_cloud_user') {
         sh 'bash terraformw apply -auto-approve -no-color'
+        }
       }
     }
   }
