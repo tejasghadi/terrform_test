@@ -15,10 +15,11 @@ pipeline {
     }
     stage('terraform') {
       steps {
-        withAWS(credentials: 'terraform_cloud_user') {
-        sh 'bash terraformw apply -auto-approve -no-color'
-        }
-      }
+                withAWS(credentials: 'terraform_cloud_user', region: 'us-east-1') {
+                    sh 'echo "hello Jenkins">hello.txt'
+                    sh 'bash terraformw apply -auto-approve -no-color'
+                }
+            }
     }
   }
   post {
