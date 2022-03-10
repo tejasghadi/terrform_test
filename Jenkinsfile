@@ -15,7 +15,8 @@ pipeline {
     }
     stage('terraform') {
       steps {
-        echo "${env.ACCESS_KEY}"
+        export "ACCESS_KEY=${env.ACCESS_KEY}"
+        export "SECRET_KEY=${env.SECRET_KEY}"
         sh 'bash terraformw apply -auto-approve -no-color'
       }
     }
