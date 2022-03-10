@@ -14,9 +14,10 @@ pipeline {
       }
     }
     stage('terraform') {
+      environment {
+        ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
+        SECRET_KEY = credentials('AWS_SECRET_KEY_ID')
       steps {
-        sh "export \"ACCESS_KEY=${env.ACCESS_KEY}\""
-        sh "export \"SECRET_KEY=${env.SECRET_KEY}\""
         sh 'bash terraformw apply -auto-approve -no-color'
       }
     }
